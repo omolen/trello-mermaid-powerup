@@ -19,7 +19,7 @@
   <div id="mermaidChart"></div>
   <script>
     var t = TrelloPowerUp.iframe();
-    mermaid.initialize({ startOnLoad: false });
+    mermaid.initialize({ startOnLoad: true });
     
 
     t.render(function() {
@@ -28,11 +28,12 @@
         console.log('Mermaid code:', mermaidCode);
         //document.getElementById('mermaidChart').innerHTML = mermaidCode;
         var insertSvg = function(svgCode, bindFunctions){
+                    console.log('InsertSVG called:', svgCode);
                     document.getElementById('mermaidChart').innerHTML = svgCode;
                     t.sizeTo('#mermaidChart').done();
                 };
 
-                mermaid.mermaidAPI.render('uniqueId', mermaidCode, insertSvg);
+        mermaid.mermaidAPI.render('uniqueId', mermaidCode, insertSvg);
         })
         .catch(function(error) {
         console.error('Failed to load Mermaid code:', error);
