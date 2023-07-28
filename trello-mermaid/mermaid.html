@@ -9,27 +9,27 @@
       padding: 0;
       overflow: auto;
     }
-    .mermaids {
+    .mermaid {
       margin: auto;
     }
   </style>
-  
 </head>
 <body>
-  <div class="mermaids"></div>
+  <div class="mermaid"></div>
   <script>
     var t = TrelloPowerUp.iframe();
-mermaid.initialize({ startOnLoad: false });
-        await mermaid.run({
-            querySelector: '.mermaids',
-        });
+
     t.render(function() {
-    return t.get('card', 'shared', 'mermaids')
+    return t.get('card', 'shared', 'mermaid')
         .then(function(mermaidCode) {
-        document.getElementByClassName('mermaids').innerHTML = mermaidCode;
-        
-        t.sizeTo('.mermaids').done();
-        
+        mermaid.initialize({ startOnLoad: false });
+
+        var insertSvg = function(svgCode, bindFunctions){
+            document.getElementById('mermaidChart').innerHTML = svgCode;
+        };
+
+        mermaid.mermaidAPI.render('mermaidChart', mermaidCode, insertSvg);
+        t.sizeTo('#mermaidChart').done();
         })
         .catch(function(error) {
         console.error('Failed to load Mermaid code:', error);
