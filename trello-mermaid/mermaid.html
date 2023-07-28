@@ -22,10 +22,7 @@
     return t.get('card', 'shared', 'mermaid')
         .then(function(mermaidCode) {
         //mermaid.initialize({ startOnLoad: false });
-
-        var insertSvg = function(svgCode, bindFunctions){
-            document.getElementById('mermaidChart').innerHTML = svgCode;
-        };
+        document.getElementById('mermaidChart').innerHTML = mermaidCode;
 
         //mermaid.mermaidAPI.render('mermaidChart', mermaidCode, insertSvg);
         t.sizeTo('#mermaidChart').done();
