@@ -26,11 +26,13 @@
     return t.get('card', 'shared', 'mermaid')
         .then(function(mermaidCode) {
         console.log('Mermaid code:', mermaidCode);
-        document.getElementById('mermaidChart').innerHTML = mermaidCode;
-        mermaid.run({
-        querySelector: '#mermaidChart',
-        });
-        t.sizeTo('#mermaidChart').done();
+        //document.getElementById('mermaidChart').innerHTML = mermaidCode;
+        var insertSvg = function(svgCode, bindFunctions){
+                    document.getElementById('mermaidChart').innerHTML = svgCode;
+                    t.sizeTo('#mermaidChart').done();
+                };
+
+                mermaid.mermaidAPI.render('uniqueId', mermaidCode, insertSvg);
         })
         .catch(function(error) {
         console.error('Failed to load Mermaid code:', error);
