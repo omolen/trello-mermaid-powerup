@@ -27,15 +27,14 @@
         .then(function(mermaidCode) {
         console.log('Mermaid code:', mermaidCode);
         document.getElementById('mermaidChart').innerHTML = mermaidCode;
-
+        mermaid.run({
+        querySelector: '#mermaidChart',
+        });
         t.sizeTo('#mermaidChart').done();
         })
         .catch(function(error) {
         console.error('Failed to load Mermaid code:', error);
         });
-    });
-    await mermaid.run({
-    querySelector: '#mermaidChart',
     });
   </script>
 </body>
