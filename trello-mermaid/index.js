@@ -2,7 +2,6 @@ window.TrelloPowerUp.initialize({
     'card-back-section': function(t, options) {
       return {
         title: 'Mermaid Diagram',
-        icon: './mermaid_144.png', 
         content: {
           type: 'iframe',
           url: t.signUrl('./mermaid.html'), 
@@ -12,7 +11,6 @@ window.TrelloPowerUp.initialize({
     },
     'card-buttons': function(t, options) {
       return [{
-        icon: './mermaid_144.png',
         text: 'Edit Mermaid Diagram',
         callback: function(t) {
           return t.popup({
