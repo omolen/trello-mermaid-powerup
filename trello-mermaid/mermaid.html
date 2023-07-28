@@ -20,12 +20,19 @@
     var t = TrelloPowerUp.iframe();
 
     t.render(function() {
-      return t.get('card', 'shared', 'mermaid')
+    return t.get('card', 'shared', 'mermaid')
         .then(function(mermaidCode) {
-          mermaid.initialize({ startOnLoad: true });
-          document.querySelector('.mermaid').textContent = mermaidCode;
-          mermaid.init(undefined, document.querySelectorAll('.mermaid'));
-          t.sizeTo('.mermaid').done();
+        mermaid.initialize({ startOnLoad: false });
+
+        var insertSvg = function(svgCode, bindFunctions){
+            document.getElementById('mermaidChart').innerHTML = svgCode;
+        };
+
+        mermaid.mermaidAPI.render('mermaidChart', mermaidCode, insertSvg);
+        t.sizeTo('#mermaidChart').done();
+        })
+        .catch(function(error) {
+        console.error('Failed to load Mermaid code:', error);
         });
     });
   </script>
