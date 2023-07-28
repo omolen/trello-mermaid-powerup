@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mermaid Diagrams Power-Up</title>
+  <script src="https://p.trellocdn.com/power-up/1.0.0/trello-power-up.min.js"></script>
+</head>
+<body>
+  <script>
+    window.TrelloPowerUp.initialize({
+      'card-back-section': function(t, options) {
+        return {
+          title: 'Mermaid Diagram',
+          icon: 'https://your-icon-url', 
+          content: {
+            type: 'iframe',
+            url: t.signUrl('./mermaid.html'), 
+            height: 500 
+          }
+        };
+      },
+      'card-buttons': function(t, options) {
+        return [{
+          icon: 'https://your-icon-url',
+          text: 'Edit Mermaid Diagram',
+          callback: function(t) {
+            return t.popup({
+              title: 'Edit Mermaid Diagram',
+              url: './edit-mermaid.html', 
+              height: 184
+            });
+          }
+        }];
+      }
+    });
+  </script>
+</body>
+</html>
