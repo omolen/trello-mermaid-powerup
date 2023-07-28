@@ -19,10 +19,8 @@
   <pre class="mermaid"></pre>
   <script>
     var t = TrelloPowerUp.iframe();
-    mermaid.initialize({ startOnLoad: false });
-        await mermaid.run({
-            querySelector: '.someOtherClass',
-        });
+    //mermaid.initialize({ startOnLoad: false });
+    //    await mermaid.run();
     t.render(function() {
     return t.get('card', 'shared', 'mermaid')
         .then(function(mermaidCode) {
