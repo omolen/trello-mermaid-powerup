@@ -25,6 +25,7 @@
         mermaid.initialize({ startOnLoad: false });
 
         var insertSvg = function(svgCode, bindFunctions){
+            console.log('Inserting SVG code: ' + svgCode);
             document.getElementById('mermaidChart').innerHTML = svgCode;
         };
 
