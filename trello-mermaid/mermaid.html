@@ -2,6 +2,8 @@
 <html>
 <head>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.0/mermaid.min.js" integrity="sha512-FwnznVYc+d1qqPe2F+6IxQCa5j/3kCqUUgkJfMjP5r71sHNuDvQYn5h/aUkVwkh+Gihu5licMvcItyF06s5uRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
       <style>
     body {
       margin: 0;
@@ -17,6 +19,8 @@
   <div id="mermaidChart"></div>
   <script>
     var t = TrelloPowerUp.iframe();
+    mermaid.initialize({ startOnLoad: false });
+    
 
     t.render(function() {
     return t.get('card', 'shared', 'mermaid')
@@ -29,6 +33,9 @@
         .catch(function(error) {
         console.error('Failed to load Mermaid code:', error);
         });
+    });
+    await mermaid.run({
+    querySelector: '#mermaidChart',
     });
   </script>
 </body>
