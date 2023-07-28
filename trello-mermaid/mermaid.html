@@ -8,14 +8,14 @@
       padding: 0;
       overflow: auto;
     }
-    .mermaid {
+    .mermaids {
       margin: auto;
     }
   </style>
   
 </head>
 <body>
-  <pre class="mermaid"></pre>
+  <pre class="mermaids"></pre>
   <script>
     var t = TrelloPowerUp.iframe();
     //mermaid.initialize({ startOnLoad: false });
@@ -23,9 +23,9 @@
     t.render(function() {
     return t.get('card', 'shared', 'mermaid')
         .then(function(mermaidCode) {
-        document.getElementByClassName('mermaid').innerHTML = mermaidCode;
+        document.getElementByClassName('mermaids').innerHTML = mermaidCode;
         
-        t.sizeTo('.mermaid').done();
+        t.sizeTo('.mermaids').done();
         
         })
         .catch(function(error) {
