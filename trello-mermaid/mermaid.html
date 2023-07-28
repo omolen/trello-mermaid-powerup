@@ -21,10 +21,9 @@
     t.render(function() {
     return t.get('card', 'shared', 'mermaid')
         .then(function(mermaidCode) {
-        //mermaid.initialize({ startOnLoad: false });
+        console.log('Mermaid code:', mermaidCode);
         document.getElementById('mermaidChart').innerHTML = mermaidCode;
 
-        //mermaid.mermaidAPI.render('mermaidChart', mermaidCode, insertSvg);
         t.sizeTo('#mermaidChart').done();
         })
         .catch(function(error) {
